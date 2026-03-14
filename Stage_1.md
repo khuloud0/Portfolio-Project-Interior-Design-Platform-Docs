@@ -31,9 +31,9 @@ The creative and real estate industries currently suffer from **"Discovery Fragm
 ## 3. Team Composition & Initial Roles
 
 ### 👥 The Project Team
-| Member | Primary Role | Core Focus Areas |
-| :--- | :--- | :--- |
-| **Khuloud Alqarni** | **Backend Lead** | **API Architecture, Database Logic & System Design** |
-| **Raghad Nassef** | Team Member | TBD (Technical Support & Quality Assurance) |
-| **Layan Aldosari** | Team Member | TBD (Technical Support & Business Logic) |
-| **Banan Aleid** | Team Member | TBD (Technical Support & Data Security) |
+| Member | Role |
+| :--- | :--- |
+| **Khuloud Alqarni** | **Backend Lead** |
+| **Raghad Nassef** | XX |
+| **Layan Aldosari** | XX |
+| **Banan Aleid** | XX |
