@@ -2,19 +2,19 @@
 
 ## Project Purpose
 
-The purpose of Artura is to create a specialized B2C platform that connects clients in the real estate and commercial sectors with creative professionals across various fields of art, including handicrafts, interior design, decoration, visual arts, and graphic design — all related to design, art, and space aesthetics.
+The purpose of Artura is to create a specialized B2C platform that connects individual clients with creative professionals across various fields of art, including handicrafts, decoration, visual arts, and graphic design — all related to design, art, and space aesthetics.
 
-These professionals, including interior designers, artists, craftsmen, and graphic designers, not only showcase their work but also offer both physical and digital products that can be used within residential and commercial spaces, many of which are customizable.
+These professionals, including artists, craftsmen, and graphic designers, showcase their work and offer both physical and digital products that can be used within personal and commercial spaces, with customization available depending on the creator.
 
-Many clients, such as property developers, business owners, restaurant and café owners, as well as individuals, face challenges in finding suitable creatives or unique and customized design solutions, often needing to search across multiple fragmented platforms.
+Many individuals struggle to find unique, high-quality décor pieces or suitable creatives who can bring their vision to life. They often rely on multiple fragmented platforms, making the process time-consuming and inefficient.
 
-Artura aims to solve this problem by providing a centralized environment where clients can discover, evaluate, and directly communicate with creatives, explore their products, and request customized solutions tailored to their needs. This reduces fragmentation, improves efficiency, and enhances the overall design and collaboration experience.
+Artura aims to solve this problem by providing a centralized environment where users can easily discover creatives, explore their work and products, and request customized solutions when available. This enhances accessibility, simplifies the decision-making process, and improves the overall experience of designing and personalizing spaces.
 
 ## Project Objectives
 
 1. Develop a platform where creative professionals can create profiles and showcase their work and products related to interior and commercial spaces.
 
-2. Enable clients to browse, evaluate, and select suitable creatives or products based on their style, expertise, and offerings.
+2. Enable clients to browse, select, and save their favorite creatives or products based on their style, expertise, and offerings.
 
 3. Provide a structured system that allows clients to request customized products or design solutions based on their specific needs.
 
@@ -26,9 +26,9 @@ Artura aims to solve this problem by providing a centralized environment where c
 
 ### External Stakeholders:
 - Tutors: Provide guidance, feedback, and evaluate project deliverables.
-- Clients: Businesses, property developers, restaurant and café owners, and individuals who will use the platform to find creative and decorative solutions.
-- Creative Professionals: Artists, artisans, interior designers, and graphic designers whose work is specifically related to interior spaces, decor, and visual identity for physical environments.
-
+- Clients: Individual users who use the platform to discover creative professionals, explore decorative products, and find personalized solutions for their personal or commercial spaces.
+- Creative Professionals: Artists, artisans, and graphic designers whose work is related to decor, visual aesthetics, and creative products for physical environments.
+  
 ## Team Roles
 
 - Khuloud Alqarni – Backend Lead: Responsible for backend development, API logic, and server-side functionality.
@@ -43,10 +43,11 @@ Artura aims to solve this problem by providing a centralized environment where c
 - Creation of professional profiles for creatives to showcase their work and products.
 - Display of decorative products (physical and digital) related to interior and commercial spaces.
 - Browsing and searching for creatives and their work based on style and offerings.
-- Basic communication between clients and creatives.
+- Allow clients to favorite creatives and easily access their work later.
 - Submission of customization requests where clients describe their design or product needs.
 
 ### Out-of-Scope:
+- Advanced customization of product browsing and interface layouts beyond simple list-based displays.
 - Advanced payment systems and financial integrations.
 - Real-time chat or complex messaging systems.
 - Full project management features.
@@ -56,7 +57,7 @@ Artura aims to solve this problem by providing a centralized environment where c
 ## Risks and Mitigation Strategies
 
 - Risk: Expanding the platform to include digital products may increase system complexity and development workload.
-  Mitigation: Focus on core MVP features first and postpone advanced digital product features to future phases.
+  Mitigation: Focus on core MVP features first and postpone advanced .
 
 - Risk: Increased workload may lead to delays in project delivery.
   Mitigation: Prioritize essential features, distribute tasks effectively, and follow a clear development timeline.
