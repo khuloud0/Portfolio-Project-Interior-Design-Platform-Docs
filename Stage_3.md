@@ -52,4 +52,5 @@ The Interior Design Platform MVP follows a simple **three-layer web architecture
 
 ### The following diagram illustrates the high-level system architecture and data flow of the Interior Design Platform MVP.
 
+![System Architecture](images/architecture.png)
 
