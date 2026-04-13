@@ -1,6 +1,6 @@
 # User Stories
 
-The following user stories define the key functionalities of the ***Interior Design Platform MVP*** from the user's perspective. These stories are prioritized using the **MoSCoW** method.
+The following user stories define the key functionalities of the **Interior Design Platform MVP** from the user's perspective. These stories are prioritized using the **MoSCoW** method.
 
 | Priority | User Story |
 | :--- | :--- |
@@ -52,7 +52,7 @@ The Interior Design Platform MVP follows a simple **three-layer web architecture
 
 ### The following diagram illustrates the high-level system architecture and data flow of the Interior Design Platform MVP.
 
-<img src="architecture.png" width="500">
+<img src="architecture.png" width="300">
 
 ## Data Flow
 
