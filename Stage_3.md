@@ -80,7 +80,7 @@ The technology stack was strategically selected to prioritize speed, maintainabi
 * **Flask:** Chosen as a lightweight micro-framework that enables quick implementation of RESTful APIs. Its minimalist and modular nature makes the system easier to scale and maintain without unnecessary overhead.
 * **SQL:** Utilized for its superior efficiency in handling relational data. This is essential for managing the structured relationships between room types, architectural styles, color palettes, and the corresponding design templates.
 
-### Define Components, Classes, and Database Design
+### Define Components, Classes, and Database Design :- 
 
 ### 01. Frontend Components
 
