@@ -229,8 +229,6 @@ The following table defines the internal API endpoints used in the system.
 
 ### SCM & QA Strategies
 
-### A SCM & QA Strategies
-
 The project uses **Git** and **GitHub** for version control and collaboration. Development is carried out using **Visual Studio Code** as the primary development environment. A structured branching strategy is followed to ensure organized development and code stability.
 
 ### Development & Version Control
