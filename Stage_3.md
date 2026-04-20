@@ -25,6 +25,9 @@ The following wireframes illustrate the main user interface screens of the MVP, 
 
 <img src="Desin Form.png" width="150">
 
+<img src="loading screen.png" width="150">
+
+
 # Design System Architecture
 
 ## Overview
