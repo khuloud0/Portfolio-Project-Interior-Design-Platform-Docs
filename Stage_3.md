@@ -17,27 +17,12 @@ The following user stories define the key functionalities of the **Interior Desi
 
 The following wireframes illustrate the main user interface screens of the MVP, **focusing on user flow and functionality** rather than visual design.
 
-<img src="Home.png" width="150">
-
-<img src="Abut Us.png" width="150">
-
-<img src="How it wrks page.png" width="150">
-
-<img src="Desin Form.png" width="150">
-
-<img src="loading screen.png" width="150">
-
-<img src="No results screen.png" width="150">
-
-<img src="results screen.png" width="150">
-
-<img src="Design Details  screen.png" width="150">
-
-<img src="Sign Up screen.png" width="150">
-
-<img src="Sign In screen.png" width="150">
-
-<img src="Design saved successfully screen.png" width="150">
+| | | |
+|:---:|:---:|:---:|
+| <img src="Home.png" width="200"><br>Home | <img src="Abut Us.png" width="200"><br>About Us | <img src="How it wrks page.png" width="200"><br>How it Works |
+| <img src="Desin Form.png" width="200"><br>Design Form | <img src="loading screen.png" width="200"><br>Loading Screen | <img src="No results screen.png" width="200"><br>No Results |
+| <img src="results screen.png" width="200"><br>Results Screen | <img src="Design Details screen.png" width="200"><br>Design Details | <img src="Sign Up screen.png" width="200"><br>Sign Up |
+| <img src="Sign In screen.png" width="200"><br>Sign In | <img src="Design saved successfully screen.png" width="200"><br>Success Screen | |
 
 
 
