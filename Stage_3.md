@@ -1,299 +1,183 @@
-# User Stories
+# Stage 3: Technical Documentation
+**Project:** Interior Design & Contractor Marketplace Platform
 
-These user stories are designed for individuals living in small rented spaces, such as students and early professionals, who need ffast, simple, and practical interior design solutions
+## Overview
+This platform bridges the gap between homeowners and credible interior designers, with an extended pipeline to connect designers with trusted contractors for whole design execution. The goal is to mitigate professional reliability within the interior design and contracting market by providing a verified, transparent, and seamless user journey from initial room request to physical project completion.
 
-The following user stories define the key functionalities of the **Interior Design Platform MVP** from the user's perspective. These stories are prioritized using the **MoSCoW** method.
+---
 
+## 1. User Stories & Prioritization (MoSCoW Method)
+
+These user stories define the core functionality from the perspective of our three main user types: Homeowners, Designers, and Contractors.
 
 | Priority | User Story |
 | :--- | :--- |
-|**Must Have** | As a user, I want to select my room type, size, style, and color so that I can quickly get design ideas that fit my small living space. |
-| | As a user, I want to view 2–4 design suggestions so that I can easily compare and pick what suits me best. |
-| | As a user, I want to generate design suggestions without logging in so that I can explore ideas instantly without commitment. |
-|**Should Have** | As a user, I want the system to match my preferences with suitable templates so that I get relevant and realistic design ideas. |
-|**Could Have** | As a user, I want to save a design so that I can come back to it when I need to decorate my space. |
-|| As a user, I want to be asked to sign up only when saving a design so that I can try the platform freely first. |
-|**Won’t Have** | As a user, I want AI-generated designs so that I get highly personalized results. (Future scope) |
-|| As a user, I want to view designs in 3D so that I can better visualize the space. (Future scope) |
+| **Must Have** | **As a Homeowner**, I want to submit a detailed design request (room type, size, style preferences) so that designers understand my needs. |
+| | **As a Homeowner**, I want to browse verified designer profiles and select one based on their portfolio and credibility rating. |
+| | **As a Designer**, I want to receive requests and submit digital draft designs to the homeowner for review. |
+| | **As a Homeowner**, I want to pay securely for the final digital design once I approve the draft. |
+| **Should Have** | **As a Homeowner**, I want the option to upgrade my digital design to implementation so the designer manages the physical execution. |
+| | **As a Designer**, I want to search a directory of credible contractors to hire for the execution phase. |
+| | **As a Contractor**, I want to maintain a profile with my credentials and past work to attract interior designers on the platform. |
+| **Could Have** | **As a user (all)**, I want an in-app messaging system so that I can communicate seamlessly without leaving the platform. |
+| **Won’t Have** | **As a Homeowner**, I want an AI to automatically generate my design. *(Out of scope: The core value is human credibility and connection).* |
 
-# Mockups / Wireframes
+---
 
-The following wireframes illustrate the main user interface screens of the MVP, **focusing on user flow and functionality** rather than visual design.
+## 2. Mockups / Wireframes
+
+The following wireframes outline the main user interface screens of the MVP, focusing on the multi-sided marketplace flow.
 
 | | | |
 |:---:|:---:|:---:|
-| <img src="Home.png" width="200"><br>Home | <img src="Abut Us.png" width="200"><br>About Us | <img src="How it wrks page.png" width="200"><br>How it Works |
-| <img src="Desin Form.png" width="200"><br>Design Form | <img src="loading screen.png" width="200"><br>Loading Screen | <img src="No results screen.png" width="200"><br>No Results |
-| <img src="results screen.png" width="200"><br>Results Screen | <img src="Design Details  screen.png" width="200"><br>Design Details | <img src="Sign Up screen.png" width="200"><br>Sign Up |
-| <img src="Sign In screen.png" width="200"><br>Sign In | <img src="Design saved successfully screen.png" width="200"><br>Success Screen | |
-
-
-
-
-# Design System Architecture
-
-## Overview
-The Interior Design Platform MVP follows a simple **three-layer web architecture** to ensure clarity, scalability, and maintainability. The system is composed of a frontend interface, a backend application, and a relational database.
+| **Home / Landing Page**<br>Value prop & search bar | **Designer Directory**<br>List of credible designers | **Designer Profile**<br>Portfolio, reviews, "Hire Me" |
+| **Project Request Form**<br>Room, size, budget, style | **Homeowner Dashboard**<br>Track drafts & project status | **Designer Dashboard**<br>Manage requests & active jobs |
+| **Draft Review & Payment**<br>Approve design & Checkout | **Contractor Directory**<br>For designers executing builds | **Contractor Profile**<br>Licenses, past projects, ratings |
 
 ---
 
-## Main Components
+## 3. Design System Architecture
+
+### Overview
+The MVP utilizes a **three-layer web architecture** (Frontend, Backend, Database) to support the complex relational data of a three-sided marketplace (Homeowner, Designer, Contractor).
+
+### Main Components
 
 | Component | Technology | Responsibility |
 | :--- | :--- | :--- |
-| **Frontend** | **React** | Handles user interaction and collects inputs such as room type, size, style, and color preferences. |
-| **Backend** | **Flask (Python)** | Processes requests, applies filtering logic, and manages API endpoints. |
-| **Database** | **SQL** | Stores structured data including design templates, categories, and user data. |
+| **Frontend** | **React** | Handles dynamic UI for distinct user dashboards (Homeowner, Designer, Contractor) and project forms. |
+| **Backend** | **Flask (Python)** | Manages business logic: user verification, matching algorithms, payment routing, and project state management. |
+| **Database** | **PostgreSQL (SQL)** | Stores highly relational data including user profiles, project details, transactions, and credibility reviews. |
+
+### Data Flow
+1. **Request Phase:** Homeowner inputs project specs via React frontend. Data is sent to Flask backend.
+2. **Matching Phase:** Homeowner selects a designer. Backend creates a "Project Sandbox" linking the two users in the SQL database.
+3. **Draft & Payment Phase:** Designer uploads digital drafts via frontend. Homeowner approves and pays. Backend processes payment (via Stripe API) and unlocks the final files.
+4. **Execution Phase (Optional):** If the Homeowner opts for  application, the backend updates the project status. The Designer queries the database for verified Contractors, initiating a secondary connection.
 
 ---
 
-## Architectural Layers
+## 4. Define Components, Classes, and Database Design
 
-### 1. Presentation Layer (Frontend)
-* Built with **React** to provide a responsive and minimalist user interface.
-* Focuses on capturing user preferences through a clean, Swiss-style design.
-* Ensures a frictionless experience by allowing interaction without immediate authentication.
-
-### 2. Logic Layer (Backend)
-* Powered by **Flask** to handle core business logic and API routing.
-* Implements the filtering algorithm to match user specifications with available design assets.
-* Manages secure communication between the client and the data store.
-
-### 3. Data Layer (Database)
-* Utilizes **SQL** to maintain structured relationships between designs, styles, and colors.
-* Ensures data integrity and allows for efficient querying as the material library expands.
-
-### The following diagram illustrates the high-level system architecture and data flow of the Interior Design Platform MVP.
-
-<img src="architecture.png" width="300">
-
-## Data Flow
-
-The following steps outline the data movement within the platform, from user input to the final result:
-
-1.  **User Input:** The user interacts with the **React frontend** by entering design preferences, such as room type, size, style, and color.
-2.  **Request:** The frontend sends an **HTTP request** containing these preferences to the **Flask backend**.
-3.  **Processing:** The backend validates the input and applies the filtering logic.
-4.  **Query:** The backend queries the **SQL database** to retrieve the most relevant design templates based on the user's criteria.
-5.  **Response:** The retrieved results are sent back to the frontend.
-6.  **Display:** The frontend renders the matching design suggestions, allowing the user to view and compare their options instantly.
-
-## External Services
-
-| Status | Details |
-| :--- | :--- |
-| **Current MVP** | The current MVP does not rely on external APIs, as it uses a predefined template-based system for generating design suggestions. |
-| **Future Scope** | Future versions may integrate external services such as AI-based design generation or third-party visualization tools to enhance personalization and visualization capabilities. |
-
-## Technical Justification
-
-The technology stack was strategically selected to prioritize speed, maintainability, and data integrity for the MVP:
-
-* **Python:** Selected for its simplicity, high readability, and robust support for rapid MVP development, allowing for faster iteration cycles.
-* **Flask:** Chosen as a lightweight micro-framework that enables quick implementation of RESTful APIs. Its minimalist and modular nature makes the system easier to scale and maintain without unnecessary overhead.
-* **SQL:** Utilized for its superior efficiency in handling relational data. This is essential for managing the structured relationships between room types, architectural styles, color palettes, and the corresponding design templates.
-
-### Define Components, Classes, and Database Design :- 
-
-### 01. Frontend Components
-
-The frontend is composed of reusable UI components that support the main MVP flow, from entering user preferences to viewing and saving design suggestions.
-
-**Main Frontend Components**
-
-The frontend is built using **React**, following a modular component-based structure to ensure reusability and a clean Swiss-style minimalist interface.
-
+### 01. Frontend Components (React)
 | Component | Description |
 | :--- | :--- |
-| **App** | The root component that manages the main application flow and overall state. |
-| **Navbar** | Displays the application title and navigation links. |
-| **DesignForm** | The core interface that collects user inputs (room type, size, style, and color). |
-| **InputField / SelectField** | Reusable UI elements for text inputs and dropdown selections. |
-| **ResultsList** | A container that displays the collection of generated design suggestions. |
-| **DesignCard** | A UI card representing a single design suggestion, including its image and details. |
-| **SaveButton** | Enables users to save a specific design to their profile. |
-| **LoginModal / SignupForm** | Triggered when an unauthenticated user attempts to save a design. |
-| **Dashboard** | A personalized view for authenticated users to manage their saved designs. |
+| `UserRouter` | Directs users to the correct dashboard based on role (Homeowner vs. Designer). |
+| `ProfileCard` | Reusable UI displaying a Designer or Contractor's rating, name, and specialty. |
+| `ProjectRequestForm` | Multi-step form collecting room details, dimensions, and style preferences. |
+| `DraftViewer` | Interface for homeowners to view, comment on, and approve uploaded designs. |
+| `PaymentGateway` | Secure checkout component for processing digital design payments. |
 
-### 02. Backend Classes
-
-The backend is implemented using Flask and Python. The system is structured around core classes that represent users, design templates, and saved designs, while service logic handles filtering and suggestion generation. Python and Flask were selected in the project stack for backend development.
-
-**Main Backend Classes**
-
+### 02. Backend Classes (Flask/Python)
 | Class | Attributes | Methods |
 | :--- | :--- | :--- |
-| **User** | `id`, `name`, `email`, `password_hash` | `register()`, `login()`, `save_design()` |
-| **DesignTemplate** | `id`, `room_type`, `room_size`, `style`, `color`, `image_url`, `description` | `get_all()`, `filter_by_preferences()` |
-| **SavedDesign** | `id`, `user_id`, `design_id`, `saved_at` | `save()`, `get_user_saved_designs()` |
-| **RecommendationService** | (Internal helper logic) | `generate_suggestions()`, `match_templates()` |
-| **AuthService** | (Stateless) | `validate_user()`, `hash_password()`, `verify_password()` |
+| **User** (Base) | `id`, `role`, `name`, `email`, `is_verified` | `login()`, `update_profile()` |
+| **Designer** | Inherits User + `portfolio_url`, `rating` | `submit_draft()`, `search_contractors()` |
+| **Project** | `id`, `homeowner_id`, `designer_id`, `status` | `update_status()`, `upgrade_to_execution()` |
+| **Transaction** | `id`, `project_id`, `amount`, `status` | `process_payment()`, `issue_payout()` |
 
-### 03.  Database Design
+### 03. Database Design (SQL)
 
-**Main Tables**
-
- 👤 **Users Table**
-
+**👥 Users Table** (Handles all 3 roles)
 | Column | Type | Description |
 | :--- | :--- | :--- |
-| **id** | INT / PK | Unique user identifier |
-| **name** | VARCHAR | Full name of the user |
-| **email** | VARCHAR / UNIQUE | Primary contact and login email |
-| **password_hash** | VARCHAR | Securely encrypted password |
+| **id** | INT / PK | Unique identifier |
+| **role** | ENUM | 'Homeowner', 'Designer', 'Contractor' |
+| **credibility_score** | DECIMAL | Aggregated rating (crucial for platform value) |
 
- 🛋️ **Room Types Table**
-
+**📁 Projects Table**
 | Column | Type | Description |
 | :--- | :--- | :--- |
-| **id** | INT / PK | Unique room type identifier |
-| **name** | VARCHAR | Example: Bedroom, Living Room, Kitchen |
+| **id** | INT / PK | Unique project identifier |
+| **homeowner_id**| INT / FK | References Users.id |
+| **designer_id** | INT / FK | References Users.id |
+| **contractor_id**| INT / FK | References Users.id (Nullable until hired) |
+| **phase** | ENUM | 'Drafting', 'Digital_Complete', 'Physical_Build' |
 
- 🎨 **Styles Table**
-
+**💬 Reviews Table**
 | Column | Type | Description |
 | :--- | :--- | :--- |
-| **id** | INT / PK | Unique style identifier |
-| **name** | VARCHAR | Example: Modern, Minimalist, Swiss |
-
-🖌️ **Colors Table**
-
-| Column | Type | Description |
-| :--- | :--- | :--- |
-| **id** | INT / PK | Unique color identifier |
-| **name** | VARCHAR | Example: White, Beige, Charcoal |
-
- 📐 **Design Templates Table**
-
-| Column | Type | Description |
-| :--- | :--- | :--- |
-| **id** | INT / PK | Unique template identifier |
-| **room_type_id** | INT / FK | References `room_types.id` |
-| **style_id** | INT / FK | References `styles.id` |
-| **color_id** | INT / FK | References `colors.id` |
-| **room_size** | VARCHAR | Small / Medium / Large |
-| **image_url** | TEXT | Path or URL to the template image |
-| **description** | TEXT | Detailed design notes |
-
-💾 **Saved Designs Table**
-
-| Column | Type | Description |
-| :--- | :--- | :--- |
-| **id** | INT / PK | Unique saved design identifier |
-| **user_id** | INT / FK | References `users.id` |
-| **design_template_id** | INT / FK | References `design_templates.id` |
-| **saved_at** | TIMESTAMP | Date and time the design was saved |
+| **reviewer_id** | INT / FK | Who wrote it |
+| **reviewee_id** | INT / FK | Who received it |
+| **rating** | INT | 1-5 scale (builds the credibility metric) |
 
 ### 04. Relationships
-
-A design template belongs to one room type, one style, and one color category. A user can save many design templates, and each saved record links one user to one design template.
-
-**Relationship Summary**
-
-* **room_types (1) → (Many) design_templates:** Each room type can be associated with multiple design templates.
-* **styles (1) → (Many) design_templates:** Each design style can be applied to various templates.
-* **colors (1) → (Many) design_templates:** Each color scheme can be used across multiple design templates.
-* **users (1) → (Many) saved_designs:** A single user can save multiple designs to their profile.
-* **design_templates (1) → (Many) saved_designs:** A specific design template can be saved by many different users.
-
-### 05. ER Diagram
-
-<img src="ERdiagram.png" width="300">
-
-### 06. Design Rationale
-
-This database structure supports the MVP requirement of generating design suggestions based on structured user inputs such as room type, size, style, and color. It also supports the progressive authentication flow by allowing users to explore suggestions first and save selected designs after authentication. These requirements are aligned with the project scope and objectives.
+* **Users (Homeowner) (1) → (Many) Projects:** A homeowner can request multiple rooms/projects.
+* **Users (Designer) (1) → (Many) Projects:** A designer can work on multiple projects simultaneously.
+* **Users (Contractor) (1) → (Many) Projects:** Contractors can be assigned to multiple execution phases.
+* **Projects (1) → (Many) Transactions:** A project may have multiple payments (e.g., Digital Draft fee, Physical Build milestones).
 
 ---
-### Generate Design Sequence
 
-This sequence diagram illustrates how the system generates design suggestions **based on user input**.
+## 5. Sequence Diagrams (High-Level Overview)
 
-<img src="userinput.png" width="600">
+*(Note: Replace these placeholders with actual image links to your generated sequence diagrams in your repository).*
 
-Save Design - This sequence diagram illustrates how a user saves a design, including the progressive authentication flow.
+**Sequence 1: Digital Design Flow**
+`![Digital Design Flow Diagram](assets/digital_design_flow.png)`
 
- <img src="SaveDesign.png" width="600">
+1. Homeowner -> Platform: Submit request & select Designer.
+2. Platform -> Designer: Notify of new project.
+3. Designer -> Platform: Upload draft design.
+4. Platform -> Homeowner: Notify draft is ready.
+5. Homeowner -> Platform: Approve & Pay.
+6. Platform -> Designer: Release funds.
 
- ### API Specifications
+**Sequence 2: Execution Flow**
+`![Execution Diagram](assets/execution.png)`
 
- **External APIs**
+1. Homeowner -> Platform: Select "Proceed to execution".
+2. Platform -> Designer: Notify of project phase upgrade.
+3. Designer -> Platform: Search Contractor directory.
+4. Platform -> Designer: Return credible contractors.
+5. Designer -> Contractor: Send execution request.
 
-| Status | Details |
+---
+
+## 6. API Specifications
+
+### External APIs
+| Service | Purpose |
 | :--- | :--- |
-| **Current MVP** | Does not rely on external APIs; uses a predefined template-based system for generating design suggestions. |
-| **Future Scope** | Future versions may integrate external services such as **AI-based design generation** or **third-party visualization tools** to enhance personalization and visualization capabilities. |
+| **Stripe API** | Payment processing. To handle the homeowner's payment and route payouts to the interior designer. |
+| **AWS S3 / Cloudinary** | Cloud storage for housing high-resolution portfolio images and project draft files. |
 
-**Internal APIs**
-
-The following table defines the internal API endpoints used in the system.
-
-### 🚀 API Endpoints
-
+### Internal APIs
 | Endpoint | Method | Description | Input | Output |
 | :--- | :--- | :--- | :--- | :--- |
-| `/generate-design` | **POST** | Generate design suggestions based on user input | `JSON: { room_type, size, style, color }` | `JSON: [{ id, room_type, style, color, image_url }]` |
-| `/login` | **POST** | Authenticate user | `JSON: { email, password }` | `JSON: { token, user_id }` |
-| `/signup` | **POST** | Register a new user | `JSON: { name, email, password }` | `JSON: { message, user_id }` |
-| `/save-design` | **POST** | Save a selected design | `JSON: { user_id, design_id }` | `JSON: { message: "Saved successfully" }` |
-| `/saved-designs` | **GET** | Retrieve user's saved designs | `Query Params: user_id` | `JSON: [{ id, design_template_id, saved_at }]` |
+| `/api/designers` | **GET** | Fetch credible designers | `Filters (style, rating)`| `JSON: [{id, name, rating, portfolio}]` |
+| `/api/projects` | **POST** | Create a new design request | `JSON: {room, size, designer_id}` | `JSON: {project_id, status}` |
+| `/api/drafts` | **POST** | Designer uploads a draft | `File, project_id` | `JSON: {draft_url, timestamp}` |
+| `/api/pay` | **POST** | Process digital design payment | `JSON: {project_id, amount}` | `JSON: {transaction_id, status}` |
+| `/api/contractors`| **GET** | Designer queries contractors| `Filters (location, rating)`| `JSON: [{id, name, rating, license}]` |
 
-**All endpoints follow RESTful design principles and return responses in JSON format**
+---
 
-### SCM & QA Strategies
-
-The project uses **Git** and **GitHub** for version control and collaboration. Development is carried out using **Visual Studio Code** as the primary development environment. A structured branching strategy is followed to ensure organized development and code stability.
+## 7. SCM & QA Strategies
 
 ### Development & Version Control
-
-#### Branching Strategy
-* **main:** Contains stable, production-ready code.
-* **develop:** Serves as the primary integration branch for ongoing development.
-* **feature branches:** Dedicated branches created for specific tasks (e.g., `feature/design-form`, `feature/api-endpoints`).
-
-#### Workflow
-* Developers create a unique feature branch for every assigned task.
-* Changes are committed regularly using clear and descriptive commit messages.
-* **Pull Requests (PRs)** are opened to merge completed features into the `develop` branch.
-* Peer code reviews are conducted to ensure quality and consistency before merging.
-* Once the `develop` branch is verified as stable, it is merged into the `main` branch.
-
-#### Development Tools
-* **Visual Studio Code:** The primary IDE used for coding, linting, and debugging.
-* **Swagger:** Utilized for comprehensive API documentation and interactive testing.
+* **Repository:** GitHub.
+* **Branching Strategy:** Feature-branch workflow.
+  * `main`: Production-ready, stable marketplace.
+  * `develop`: Integration branch.
+  * `feature/*`: Specific tasks (e.g., `feature/payment-gateway`).
+* **Tools:** Visual Studio Code, Postman (for API testing).
 
 ### Quality Assurance (QA)
+Testing will heavily focus on user-role permissions and transactional integrity.
 
-The project follows a combination of manual testing and API validation techniques to ensure system functionality, reliability, and correctness.
+* **Manual Testing Scenarios:**
+  * Verify a Homeowner cannot access the Contractor Search (only Designers should see this in the current flow).
+  * Validate that final high-res designs are locked until Stripe confirms payment success.
+* **Automated API Testing:**
+  * Ensuring the matching logic returns *only* designers/contractors above a certain credibility threshold.
+* **Security Testing:** Validate authentication tokens so users can only access their own private project data and drafts.
 
-### Testing & Deployment Strategy
+---
 
-* **Manual Testing:**
-    * Validating the user input forms for responsiveness and accuracy.
-    * Verifying that design generation results match the selected criteria.
-    * Testing the "Save Design" functionality to ensure data persistence.
-    * Rigorous testing of the login, signup, and authentication flows.
-* **API Testing:**
-    * Utilizing **Swagger** to test all API endpoints interactively.
-    * Validating request and response formats (JSON) against expected schemas.
-    * Ensuring the backend returns the correct HTTP status codes for all operations.
+## 8. Technical Justification
 
-#### Test Scenarios
-* **Valid Input:** Ensures the system provides accurate design results based on user preferences.
-* **Invalid Input:** Confirms that the system handles errors gracefully with proper validation messages.
-* **Unauthenticated Actions:** Verifies that attempting to save a design without logging in correctly triggers the authentication modal.
-* **Authenticated User Flow:** Ensures logged-in users can successfully save designs and retrieve them via their dashboard.
-
-#### Deployment Plan
-* **Local Development:** The application is developed and tested locally using the **Flask** framework.
-* **Database Setup:** **SQL** is used during the initial phase for its simplicity and rapid setup capabilities.
-* **Future Deployment:** Subsequent versions are planned for deployment to a **cloud environment** (e.g.,AWS,..) for public access and scalability.
-
-
-
-
-
-
-
- 
-
+* **React (Frontend):** A component-based UI is essential for a marketplace. We can reuse components like `ProfileCard` and `ReviewStars` across the Designer and Contractor directories, drastically speeding up development time.
+* **Flask (Backend):** Python's lightweight nature allows us to build and iterate on the matching and payment-routing logic rapidly without the boilerplate of larger frameworks.
+* **PostgreSQL (Database):** A relational database is non-negotiable for this idea. The complex linkages between Homeowners, Designers, Contractors, Projects, and Payments require strict ACID compliance and foreign-key constraints to ensure no data is orphaned (e.g., a payment not linked to a specific design).
+* **Stripe Integration:** Processing payments natively is a massive legal and security risk. Offloading this to Stripe ensures PCI compliance and handles complex multi-party payouts.
