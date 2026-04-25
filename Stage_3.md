@@ -254,8 +254,6 @@ The frontend is built using **React**, following a modular component-based struc
 
 The backend is implemented using **Flask** and **Python**. The system is structured around core classes that represent the execution workflow, including requests, execution plans, steps, and offers.
 
----
-
 ### Main Backend Classes
 
 | Class | Attributes | Methods |
@@ -284,48 +282,32 @@ The system database is structured into the following main tables:
 * **selected_offers**
 * **projects**
 
-04. Relationships (Updated)
+## 04. Relationships
 
 The database is structured to reflect the execution workflow, where each entity is connected to support the full project lifecycle from request to execution.
 
----
-
-Relationship Summary
+**Relationship Summary**
 
 * **users (1) → (Many) design_requests**
     A homeowner can submit multiple design requests.
 
----
-
 * **design_requests (1) → (1) execution_plans**
     Each request is assigned one execution plan created by a designer.
-
----
 
 * **users (designer) (1) → (Many) execution_plans**
     A designer can create multiple execution plans.
 
----
-
 * **execution_plans (1) → (Many) execution_steps**
     Each execution plan consists of multiple steps.
-
----
 
 * **execution_steps (1) → (Many) offers**
     Each step can receive multiple offers from providers.
 
----
-
 * **users (provider) (1) → (Many) offers**
     A provider can submit multiple offers for different steps.
 
----
-
 * **execution_steps (1) → (1) selected_offers**
     Each step will have one selected offer chosen by the homeowner.
-
----
 
 * **design_requests (1) → (1) projects**
     Once the homeowner confirms all selections, a project is created.
