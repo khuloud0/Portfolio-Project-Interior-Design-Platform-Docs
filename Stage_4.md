@@ -1,4 +1,4 @@
-# SCM and QA Plan
+# MVP Development and Execution 
 
 ## 1. Development Objectives
 
@@ -10,7 +10,7 @@ Build the functional core of the interior design execution platform using:
 - **PostgreSQL** for the Database
 
 ### Agile Methodology
-Development will be executed in **four distinct 2-week sprints**.
+Development will be executed in **four distinct 1-week sprints**.
 
 ### Quality Standards
 Code quality will be maintained through:
@@ -18,7 +18,7 @@ Code quality will be maintained through:
 - GitHub SCM workflow
 - Code reviews
 - Pull Requests
-- QA testing using VS code
+- QA testing using VS Code
 - Manual frontend testing
 
 ---
@@ -29,7 +29,7 @@ Code quality will be maintained through:
 |---|---|---|
 | Project Manager | [Banan] | Sprint planning, tracking GitHub Project tasks, and unblocking the team |
 | SCM Manager | [Khulud] | Managing branches, reviewing Pull Requests, and maintaining code consistency |
-| QA Engineer | [Layan] | Creating test plans, validating API endpoints via VS code, and manual UI testing |
+| QA Engineer | [Layan] | Creating test plans, validating API endpoints via VS Code, and manual UI testing |
 | Developers | [Raghad] | Implementing React components, Flask classes, and PostgreSQL schema |
 
 ---
@@ -49,7 +49,7 @@ Set up the development environment and enable homeowners to submit design reques
 ### QA Focus
 - Validate form submission
 - Confirm data is correctly saved in the database
-- Verify API response using Swagger
+- Verify API response using VS Code
 
 ---
 
@@ -67,7 +67,7 @@ Allow designers to break down homeowner requests into actionable execution plans
 ### QA Focus
 - Verify step creation
 - Confirm parent-child relationships between plans and steps in the database
-- Test API responses through Swagger
+- Test API responses through VS Code
 
 ---
 
@@ -85,7 +85,7 @@ Populate the marketplace with provider bids and designer recommendations.
 
 ### QA Focus
 - Ensure providers can only bid on relevant `service_type` steps
-- Validate offer creation through Swagger
+- Validate offer creation through VS Code
 - Confirm recommendation tags display correctly in the UI
 
 ---
@@ -114,12 +114,11 @@ Allow homeowners to select providers and track project progress.
 
 All development work must be completed in feature branches.
 
-```bash
-main
-develop
-feature/feature-name
+- `main`
+- `develop`
+- `feature/feature-name`
 
-## Branch Rules
+### Branch Rules
 
 - No direct commits to `main`
 - All developers must create a branch from `develop`
@@ -130,63 +129,96 @@ feature/feature-name
 ### Git Branch Workflow
 
 ```bash
-# Move to develop branch
-git checkout develop
-
-# Update develop with latest changes
 git pull origin develop
-
-# Create a new feature branch
 git checkout -b feature/feature-name
+```
 
-## Pull Request Description
+After completing the feature:
 
-### Feature Implemented
-Describe the feature added in this Pull Request.
+```bash
+git push origin feature/feature-name
+```
 
-### Type of Change
-- [ ] Frontend
-- [ ] Backend
-- [ ] Database
-- [ ] Documentation
-- [ ] Bug Fix
+Then create a Pull Request from `feature/feature-name` to `develop`.
 
-### Testing Completed
-- [ ] Code runs without errors
-- [ ] Backend endpoints tested
-- [ ] VS code testing completed
+---
+
+### Pull Request Rules
+
+Each Pull Request must include:
+
+- Clear description of the implemented feature
+- Screenshots if frontend changes were made
+- VS Code test results for backend endpoints
+- Confirmation that the code runs without errors
+- At least one peer review from the SCM Manager
+
+### Pull Request Checklist
+
+- [ ] Clear description of the implemented feature
 - [ ] Frontend screenshots added, if applicable
-- [ ] Database persistence verified
-
-### Review
+- [ ] VS Code testing completed
+- [ ] Code runs without errors
 - [ ] Peer review completed
 - [ ] SCM Manager approval received
 
-## Swagger API Testing Checklist
+---
 
-### Endpoint Tested
-`POST /endpoint-name`
-`POST /requests`
-`POST /plans`
-`POST /steps`
-`POST /offers`
-`POST /select-offer`
+### API Testing Strategy
 
-### Verification
+All Flask endpoints must be tested using VS Code.
+
+The QA Engineer will verify:
+
+- Correct HTTP status codes
+- Correct JSON response format
+- Required fields validation
+- Error handling
+- Successful database persistence
+
+### Example Endpoints to Test
+
+- `POST /requests`
+- `POST /plans`
+- `POST /steps`
+- `POST /offers`
+- `POST /select-offer`
+
+### VS Code API Testing Checklist
+
+#### Endpoint Tested
+
+- `POST /requests`
+- `POST /plans`
+- `POST /steps`
+- `POST /offers`
+- `POST /select-offer`
+
+#### Verification
+
 - [ ] Correct HTTP status code returned
 - [ ] Correct JSON response format returned
 - [ ] Required fields validation works
 - [ ] Error handling works correctly
 - [ ] Data is saved successfully in the database
 
-## Definition of Done
+---
+
+### Definition of Done
+
+A task is considered complete only when:
 
 - [ ] Code builds without errors
 - [ ] Unit tests passed
-- [ ] Swagger API testing completed
+- [ ] VS Code API testing completed
 - [ ] Documentation updated
 - [ ] Pull Request reviewed and approved
 - [ ] QA verified the feature locally
 
-Project Board: [https://github.com/users/khuloud0/projects/2/views/1](#)
+---
+
+## 5. Project Links
+
+- Project Board: [View GitHub Project 2](https://github.com/users/khuloud0/projects/2/views/1)
+
 
