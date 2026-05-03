@@ -1,85 +1,192 @@
-# Stage 4: MVP Development and Execution
+# SCM and QA Plan
 
-## Objectives
-* Implement the MVP based on the technical documentation developed in the previous stage.[cite: 2]
-* Adopt Agile principles to divide work into manageable sprints, ensuring iterative development and continuous improvement.[cite: 2]
-* Assign roles and responsibilities, emphasizing the importance of Project Manager, SCM, and QA roles for project organization and quality assurance.[cite: 2]
-* Promote collaboration among team members with clear task assignments, deadlines, and dependencies.[cite: 2]
-* Monitor progress through metrics, address deviations from the plan, and prioritize deliverables effectively.[cite: 2]
+## 1. Development Objectives
 
-## Importance of Stage 4
-This stage represents the most intensive phase of the project, translating plans and designs into a functional MVP.[cite: 2] Non-technical roles like Project Manager, SCM, and QA are vital to maintaining organization, ensuring the integrity of the codebase, and delivering high-quality results.[cite: 2] The adoption of Agile methodologies, such as sprints, fosters adaptability, consistent progress, and team alignment.[cite: 2]
+### MVP Implementation
+Build the functional core of the interior design execution platform using:
 
-## Key Roles for Stage 4
-* **Project Manager (PM):** Oversees planning, sprint organization, and progress tracking. Coordinates team activities and ensures deadlines are met. Manages deviations and adapts the plan as needed.[cite: 2]
-* **Source Control Manager (SCM):** Ensures proper use of version control (e.g., Git). Maintains branch integrity, conducts code reviews, and enforces best practices.[cite: 2]
-* **Quality Assurance (QA):** Develops and executes test plans, including unit, integration, and user acceptance testing. Ensures all deliverables meet the predefined quality standards before deployment.[cite: 2]
-* **Technical Roles:** Developers, database administrators, and other technical members responsible for implementing features, APIs, UI components, or other project elements.[cite: 2]
+- **Flask** for the Backend
+- **React** for the Frontend
+- **PostgreSQL** for the Database
 
----
+### Agile Methodology
+Development will be executed in **four distinct 2-week sprints**.
 
-## Tasks for Stage 4
+### Quality Standards
+Code quality will be maintained through:
 
-### 0. Plan and Define Sprints
-**Purpose:** To divide the development phase into short, manageable iterations.[cite: 2]
-
-Based on the MoSCoW priorities and architectural layers defined in Stage 3, here is the prioritized sprint plan for the interior design execution platform:
-
-#### **Sprint 1: Foundation & Design Requests (Weeks 1-2)**
-* **Goal:** Establish the base architecture and allow homeowners to submit design requests.
-* **Frontend (React):** Set up `App` structure and `Navbar`.[cite: 2] Build the `RequestForm` component for homeowners.[cite: 2]
-* **Backend (Flask/PostgreSQL):** Initialize database with `users`, `provider_profiles`, and `design_requests` tables.[cite: 2] Implement the `/requests` POST endpoint.[cite: 2]
-* **QA:** Test local database connection, validate the design request form for accurate input handling, and verify the `/requests` endpoint with Swagger.[cite: 2]
-
-#### **Sprint 2: Execution Planning (Weeks 3-4)**
-* **Goal:** Enable designers to deconstruct requests into actionable execution steps.
-* **Frontend (React):** Build the `ExecutionPlanView` and `StepCard` components.[cite: 2]
-* **Backend (Flask/PostgreSQL):** Create `execution_plans` and `execution_steps` tables.[cite: 2] Implement `/plans` and `/steps` POST endpoints.[cite: 2]
-* **QA:** Verify execution plan creation and step structure.[cite: 2] Ensure steps are properly linked to their parent plans in the database.
-
-#### **Sprint 3: Provider Offers & Designer Recommendations (Weeks 5-6)**
-* **Goal:** Allow providers to submit offers and designers to tag recommendations.
-* **Frontend (React):** Develop `OffersList`, `OfferCard`, and `RecommendationBadge` components.[cite: 2]
-* **Backend (Flask/PostgreSQL):** Build the `offers` table.[cite: 2] Implement the `/offers` POST endpoint and the `RecommendationService` logic.[cite: 2]
-* **QA:** Test the offer submission flow.[cite: 2] Validate that designers can successfully tag the best-fit offers and that the frontend updates accordingly.
-
-#### **Sprint 4: Final Package, Selection & Tracking (Weeks 7-8)**
-* **Goal:** Complete the core workflow by enabling provider selection and project tracking.
-* **Frontend (React):** Build the `SelectionPanel`, `ProjectOverview`, and `ContactProviderButton` components.[cite: 2]
-* **Backend (Flask/PostgreSQL):** Create `selected_offers` and `projects` tables.[cite: 2] Implement `/select-offer` POST and `/projects/{id}` GET endpoints.[cite: 2]
-* **QA:** Perform end-to-end (E2E) manual testing on the offer selection and project confirmation flow.[cite: 2] Ensure real-time status indicators (Pending, In Progress, Completed) update correctly.[cite: 2]
+- GitHub SCM workflow
+- Code reviews
+- Pull Requests
+- QA testing using VS code
+- Manual frontend testing
 
 ---
 
-### 1. Execute Development Tasks
-**Purpose:** To implement features and deliverables according to the sprint plan.[cite: 2]
-* **Instructions:**
-  * Developers focus on assigned React and Flask tasks for the current sprint, adhering to clean code standards.[cite: 2]
-  * The SCM manages the `main`, `develop`, and `feature/*` branches.[cite: 2] Code must pass peer review via Pull Requests (PRs) before merging into `develop`.[cite: 2]
-  * QA conducts tests on completed tasks to identify bugs or improvements.[cite: 2]
+## 2. Team Roles & Responsibilities
 
-### 2. Monitor Progress and Adjust
-**Purpose:** To track team performance, measure progress, and address any issues.[cite: 2]
-* **Instructions:**
-  * Conduct daily discussion to review completed frontend/backend tasks, discuss blockers, and plan the day’s work.[cite: 2]
-  * Use the GitHub Projects board to update task statuses and track metrics such as sprint velocity.[cite: 2]
-  * Adjust sprint goals or reassign tasks (e.g., shifting UI work if backend API dependencies are delayed) as necessary.[cite: 2]
-
-### 3. Conduct Sprint Reviews and Retrospectives
-**Purpose:** To review progress, demo completed features, and reflect on process improvements.[cite: 2]
-* **Instructions:**
-  * At the end of each sprint, demo completed features (like the Request Form or Selection Panel).[cite: 2]
-  * Conduct a retrospective answering: What worked well? What challenges did we face? What changes can we make to improve the next sprint?[cite: 2]
-
-### 4. Final Integration and QA Testing
-**Purpose:** To ensure all components work together seamlessly and meet quality standards.[cite: 2]
-* **Instructions:**
-  * Conduct integration tests to verify the end-to-end functionality of the MVP, tracing the data flow from `Homeowner Request` -> `Designer Plan` -> `Provider Offer` -> `Final Selection`.[cite: 2]
-  * QA executes the final test plan, including manual UI testing and Swagger API testing for correct JSON formats and HTTP status codes.[cite: 2]
-  * Fix any critical bugs identified before finalizing the local deployment.[cite: 2]
+| Role | Assigned Member | Responsibilities |
+|---|---|---|
+| Project Manager | [Banan] | Sprint planning, tracking GitHub Project tasks, and unblocking the team |
+| SCM Manager | [Khulud] | Managing branches, reviewing Pull Requests, and maintaining code consistency |
+| QA Engineer | [Layan] | Creating test plans, validating API endpoints via VS code, and manual UI testing |
+| Developers | [Raghad] | Implementing React components, Flask classes, and PostgreSQL schema |
 
 ---
 
-### 5. Deliverables Repository Links
+## 3. Sprint Execution Plan
 
-[GitHub Project Board](https://github.com/users/khuloud0/projects/2/views/1)
+## Sprint 1: Infrastructure & Design Intake
+
+### Goal
+Set up the development environment and enable homeowners to submit design requests.
+
+### Tasks
+- Initialize PostgreSQL database with `users` and `design_requests` tables
+- Develop React `RequestForm` component for project specifications and budget
+- Implement Flask `/requests` POST endpoint
+
+### QA Focus
+- Validate form submission
+- Confirm data is correctly saved in the database
+- Verify API response using Swagger
+
+---
+
+## Sprint 2: Actionable Execution Plans
+
+### Goal
+Allow designers to break down homeowner requests into actionable execution plans.
+
+### Tasks
+- Create `execution_plans` and `execution_steps` tables
+- Develop `ExecutionPlanView` frontend component
+- Develop `StepCard` frontend component
+- Implement `/plans` and `/steps` endpoints for plan generation
+
+### QA Focus
+- Verify step creation
+- Confirm parent-child relationships between plans and steps in the database
+- Test API responses through Swagger
+
+---
+
+## Sprint 3: Provider Offers & Designer Tagging
+
+### Goal
+Populate the marketplace with provider bids and designer recommendations.
+
+### Tasks
+- Implement `Offer` class
+- Implement `/offers` POST endpoint
+- Develop `RecommendationService` to allow designers to tag best-fit offers
+- Build `OffersList` frontend component
+- Build `RecommendationBadge` UI component
+
+### QA Focus
+- Ensure providers can only bid on relevant `service_type` steps
+- Validate offer creation through Swagger
+- Confirm recommendation tags display correctly in the UI
+
+---
+
+## Sprint 4: Selection & Project Dashboard
+
+### Goal
+Allow homeowners to select providers and track project progress.
+
+### Tasks
+- Build `SelectionPanel` for homeowner provider confirmation
+- Implement `/select-offer` logic
+- Create `projects` table
+- Create `ProjectOverview` dashboard for real-time project status tracking
+
+### QA Focus
+- Perform end-to-end workflow testing
+- Validate project status updates such as `Pending` and `Completed`
+- Confirm selected offers are correctly linked to projects
+
+---
+
+## 4. Git Workflow & QA Strategy
+
+### Branching Strategy
+
+All development work must be completed in feature branches.
+
+```bash
+main
+develop
+feature/feature-name
+
+## Branch Rules
+
+- No direct commits to `main`
+- All developers must create a branch from `develop`
+- Each feature must be developed in a separate `feature/feature-name` branch
+- Completed features must be submitted through a Pull Request
+- The SCM Manager must review Pull Requests before merging into `develop`
+
+### Git Branch Workflow
+
+```bash
+# Move to develop branch
+git checkout develop
+
+# Update develop with latest changes
+git pull origin develop
+
+# Create a new feature branch
+git checkout -b feature/feature-name
+
+## Pull Request Description
+
+### Feature Implemented
+Describe the feature added in this Pull Request.
+
+### Type of Change
+- [ ] Frontend
+- [ ] Backend
+- [ ] Database
+- [ ] Documentation
+- [ ] Bug Fix
+
+### Testing Completed
+- [ ] Code runs without errors
+- [ ] Backend endpoints tested
+- [ ] VS code testing completed
+- [ ] Frontend screenshots added, if applicable
+- [ ] Database persistence verified
+
+### Review
+- [ ] Peer review completed
+- [ ] SCM Manager approval received
+
+## Swagger API Testing Checklist
+
+### Endpoint Tested
+`POST /endpoint-name`
+`POST /requests`
+`POST /plans`
+`POST /steps`
+`POST /offers`
+`POST /select-offer`
+
+### Verification
+- [ ] Correct HTTP status code returned
+- [ ] Correct JSON response format returned
+- [ ] Required fields validation works
+- [ ] Error handling works correctly
+- [ ] Data is saved successfully in the database
+
+## Definition of Done
+
+- [ ] Code builds without errors
+- [ ] Unit tests passed
+- [ ] Swagger API testing completed
+- [ ] Documentation updated
+- [ ] Pull Request reviewed and approved
+- [ ] QA verified the feature locally
+
+Project Board: [https://github.com/users/khuloud0/projects/2/views/1](#)
+
