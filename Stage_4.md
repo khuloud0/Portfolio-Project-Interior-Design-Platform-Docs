@@ -66,10 +66,9 @@ Code quality and project organization were maintained through:
 
 | Role | Assigned Member | Responsibilities |
 |---|---|---|
-| Project Manager | Banan | Sprint planning, tracking GitHub Project tasks, and unblocking the team |
+| Database Lead  | Banan | Handling Database and backend tasks while leading the group and oraganzing performance |
 | backend Lead | Khuloud | backend & Took on part of the Frontend and UI/UX responsibilities after the team restructuring. |
 | QA Engineer | Layan | Creating test plans, validating API endpoints using VS Code, and manual UI testing |
-| Developer | Raghad | Implementing React components, Flask classes, and PostgreSQL schema |
 
 ---
 
