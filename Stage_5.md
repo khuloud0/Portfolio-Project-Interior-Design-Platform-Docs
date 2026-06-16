@@ -35,6 +35,7 @@
 | | 🐘 **PostgreSQL** | 💻 **Visual Studio Code** |
 | | ☁️ **Railway** | 🔍 **Console, Network Tab** |
 | | 💳 **Stripe** | |
+| | ⚡ **Thunder Client** | |
 
 ---
 
@@ -108,6 +109,25 @@ By the end of this project, Swagne was successfully built and deployed as a full
 * **Collaboration:** It isn't just about dividing tasks — it's about supporting each other when things get hard and sharing knowledge openly.
 * **Continuous learning:** Every bug we faced taught us something we couldn't have learned from a tutorial.
 * **Growth mindset:** A mistake is not failure. Some of our best technical decisions came directly from understanding why something went wrong.
+
+---
+
+## 🔄 Retrospective
+
+### How We Worked as a Team
+We coordinated our work through Git Project, tracking tasks, progress, and blockers in one shared space. Roles were distributed based on personal interest and passion more than prior experience — which pushed each of us to grow beyond our comfort zone.
+
+There were moments of imbalance in contribution, but we addressed them openly using commit history as objective evidence. That honesty made us a stronger team by the end.
+
+Overall, our collaboration improved significantly as the project progressed — we learned to communicate faster, unblock each other, and make decisions together.
+
+### What We Would Do Differently
+- Assign responsibilities more clearly from Day 1
+- Hold more frequent sync meetings during complex technical phases
+- Document API contracts before building, not after
+- Start deployment configuration in the first stage, not the last
+- Never underestimate testing — it should be treated as a core part of development, not an afterthought
+- Allocate dedicated time for testing and demo preparation earlier in the timeline
 
 ---
 
